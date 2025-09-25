@@ -1,0 +1,147 @@
+@use '@/styles/variables' as *;
+@use 'sass:list';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $black;
+  color: $white;
+}
+
+// text
+@mixin texting($family, $size, $weight) {
+  font: {
+    family: $family;
+    size: $size*$n;
+    weight: $weight;
+  }
+}
+$texting: (
+  heading-1: ($font-heading, 64, 800),
+  heading-2: ($font-heading, 48, 700),
+  heading-3: ($font-heading, 40, 700),
+  heading-4: ($font-heading, 36, 600),
+  body-1: ($font-body, 36, 700),
+  body-2: ($font-body, 32, 600),
+  body-3: ($font-body, 24, 600),
+  body-4: ($font-body, 20, 500),
+  body-5: ($font-body, 16, 500),
+  body-6: ($font-body, 12, 500)
+);
+@each $name, $value in $texting {
+  .#{$name} {
+    @include texting(list.nth($value, 1), list.nth($value, 2), list.nth($value, 3))
+  }
+}
+
+$color: (
+  white: $white,
+  black: $black,
+  accent: $accent,
+  gray-1: $gray-1,
+  gray-2: $gray-2,
+  gray-3: $gray-3,
+  accent-1: $accent-1,
+  accent-2: $accent-2,
+  accent-3: $accent-3
+);
+@each $name, $value in $color {
+  .color-#{$name} {
+    color: $value;
+  }
+  .bg-#{$name} {
+    background-color: $value;
+  }
+  .border-#{$name} {
+    border-color: $value;
+  }
+  .outline-#{$name} {
+    outline-color: $value;
+  }
+}
+
+@mixin flex($direction, $wrap) {
+  display: flex;
+  flex: {
+    direction: $direction;
+    wrap: $wrap;
+  }
+}
+$flex: (
+  r: (row, nowrap),
+  rr: (row-reverse, nowrap),
+  rw: (row, wrap),
+  rrw: (row-reverse, wrap),
+  rwr: (row, wrap-reverse),
+  rrwr: (row-reverse, wrap-reverse),
+  c: (column, nowrap),
+  cr: (column-reverse, nowrap),
+  cw: (column, wrap),
+  crw: (column-reverse, wrap),
+  cwr: (column, wrap-reverse),
+  crwr: (column-reverse, wrap-reverse)
+);
+@each $name, $value in $flex {
+  .f-#{$name} {
+    @include flex(list.nth($value, 1), list.nth($value, 2))
+  }
+}
+
+$side: (
+  top, bottom, left, right, all, horizontal, vertical
+);
+@mixin padding($name, $i) {
+  @if $name == all {
+    padding: $i*$n;
+  } @else if $name == horizontal {
+    padding-left: $i*$n;
+    padding-right: $i*$n;
+  } @else if $name == vertical {
+    padding-top: $i*$n;
+    padding-bottom: $i*$n;
+  } @else {
+    padding-#{$name}: $i*$n;
+  }
+}
+
+$radius-side: (
+  all, top-right, bottom-right, top-left, bottom-left, left, right, top, bottom
+);
+@mixin radius($name, $i) {
+  @if $name == all {
+    border-radius: $i*$n;
+  } @else if $name == left {
+    border-bottom-left-radius: $i*$n;
+    border-top-left-radius: $i*$n;
+  } @else if $name == right {
+    border-bottom-right-radius: $i*$n;
+    border-top-right-radius: $i*$n;
+  } @else if $name == top {
+    border-top-left-radius: $i*$n;
+    border-top-right-radius: $i*$n;
+  } @else if $name == bottom {
+    border-bottom-left-radius: $i*$n;
+    border-bottom-right-radius: $i*$n;
+  } @else {
+    border-#{$name}-radius: $i*$n;
+  }
+}
+
+@for $i from 0 to 129 {
+  .gap-#{$i} {
+    gap: $i*$n;
+  }
+  @each $name in $side {
+    .pad-#{$name}-#{$i} {
+      @include padding($name, $i);
+    }
+  }
+  @each $name in $radius-side {
+    .rad-#{$name}-#{$i} {
+      @include radius($name, $i)
+    }
+  }
+}
