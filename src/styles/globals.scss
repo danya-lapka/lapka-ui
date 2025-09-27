@@ -11,7 +11,6 @@ body {
   color: $white;
 }
 
-// text
 @mixin texting($family, $size, $weight) {
   font: {
     family: $family;
@@ -90,6 +89,21 @@ $flex: (
   }
 }
 
+@mixin grid($direction, $value) {
+  display: grid;
+  grid-template-#{$direction}: repeat($value, 1fr);
+}
+$grid: (
+  rows, columns
+);
+@for $i from 1 to 10 {
+  @each $name in $grid {
+    .ga-#{$name}-#{$i} {
+      @include grid($name, $i)
+    }
+  }
+}
+
 $side: (
   top, bottom, left, right, all, horizontal, vertical
 );
@@ -143,5 +157,13 @@ $radius-side: (
     .rad-#{$name}-#{$i} {
       @include radius($name, $i)
     }
+  }
+}
+@for $i from 0 to 101 {
+  .w-#{$i} {
+    width: #{$i}+'%';
+  }
+  .h-#{$i} {
+    height: #{$i}+'%';
   }
 }

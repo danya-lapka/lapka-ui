@@ -1,5 +1,3 @@
-import { Text } from "@/components/props";
-import { Texting } from "@/components/server";
 const styles : { [key: string]: React.CSSProperties } = {
   gray: {
     backgroundColor: '#808080'
@@ -67,10 +65,10 @@ export default function Home() {
 
   const texts: {[group:string]: string[]} = {
     headings: [
-      'Heading_1', 'Heading_2', 'Heading_3', 'Heading_4'
+      'heading-1', 'heading-2', 'heading-3', 'heading-4'
     ],
     bodies: [
-      'Body_1', 'Body_2', 'Body_3', 'Body_4', 'Body_5', 'Body_6'
+      'body-1', 'body-2', 'body-3', 'body-4', 'body-5', 'body-6'
     ]
   }
 
@@ -80,14 +78,14 @@ export default function Home() {
         <div className="f-r gap-8">
           {colors.grays.map((i) => {
             return(
-              <div key={i.value} className={`bg-${i.name} color-${i.text} pad-all-8 body-4 rad-all-8`}>{i.value}</div>
+              <div key={i.value} className={`bg-${i.name} color-${i.text} body-4 pad-all-8 rad-all-8`}>{i.value}</div>
             )
           })}
         </div>
         <div className="f-r gap-8">
           {colors.accents.map((i) => {
             return(
-              <div key={i.value} className={`bg-${i.name} color-${i.text} pad-all-8 body-4 rad-all-8`}>{i.value}</div>
+              <div key={i.value} className={`bg-${i.name} color-${i.text} body-4 pad-all-8 rad-all-8`}>{i.value}</div>
             )
           })}
         </div>
@@ -96,14 +94,14 @@ export default function Home() {
         <div className="f-c gap-8">
           {texts.headings.map((i) => {
             return (
-              <Texting key={i} text={Text[i as keyof typeof Text]}>{i}</Texting>
+              <div key={i} className={i}>{i}</div>
             )
           })}
         </div>
         <div className="f-c gap-8">
           {texts.bodies.map((i) => {
             return (
-              <Texting key={i} text={Text[i as keyof typeof Text]}>{i}</Texting>
+              <div key={i} className={i}>{i}</div>
             )
           })}
         </div>
