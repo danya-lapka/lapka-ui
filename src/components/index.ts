@@ -1,3 +1,4 @@
-import { Color } from "./props";
+import { Button } from "./button";
+import { A } from "./link";
 
-export { Color }
+export { A, Button }

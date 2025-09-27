@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Unbounded } from "next/font/google";
 import localFont from "next/font/local";
 import '@/styles/globals.scss';
+import '@/styles/all.scss';
 
 const heading = Unbounded({
   variable: "--font-heading",

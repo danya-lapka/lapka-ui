@@ -1,3 +1,5 @@
+import { A, Button } from "@/components"
+
 const styles : { [key: string]: React.CSSProperties } = {
   gray: {
     backgroundColor: '#808080'
@@ -47,7 +49,7 @@ export default function Home() {
       },
       {
         name: 'accent-1',
-        value: '#FFD9F2',
+        value: '#FFBFE9',
         text: 'black'
       },
       {
@@ -57,7 +59,7 @@ export default function Home() {
       },
       {
         name: 'accent-3',
-        value: '#40303A',
+        value: '#660043',
         text: 'white'
       }
     ]
@@ -71,6 +73,10 @@ export default function Home() {
       'body-1', 'body-2', 'body-3', 'body-4', 'body-5', 'body-6'
     ]
   }
+
+  const components: string[] = [
+    'white', 'black', 'accent', 'accent-alt', 'white-accent', 'black-accent'
+  ]
 
   return (
     <div className="f-rw gap-32 pad-all-32" style={styles.gray}>
@@ -105,6 +111,20 @@ export default function Home() {
             )
           })}
         </div>
+      </div>
+      <div className="f-c gap-8">
+        {components.map((i) => {
+          return (
+            <A className="body-4" key={i} color={i}>Link {i}</A>
+          )
+        })}
+      </div>
+      <div className="f-c gap-8">
+        {components.map((i) => {
+          return (
+            <Button className="body-4" key={i} color={i}>Button {i}</Button>
+          )
+        })}
       </div>
     </div>
   );
