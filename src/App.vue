@@ -1,7 +1,5 @@
 <script setup lang="ts">
 
-import '@/styles/all.scss';
-import '@/styles/mixins.scss';
 import { BaseButton, BaseLink, BaseTooltip } from './components';
 
 </script>
