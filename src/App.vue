@@ -2,7 +2,7 @@
 
 import '@/styles/all.scss';
 import '@/styles/mixins.scss';
-import { BaseButton, BaseLink } from './components';
+import { BaseButton, BaseLink, BaseTooltip } from './components';
 
 </script>
 
@@ -49,6 +49,12 @@ import { BaseButton, BaseLink } from './components';
       <BaseLink href="#" color="black-accent">Button</BaseLink>
       <BaseLink href="#" color="accent">Button</BaseLink>
       <BaseLink href="#" color="accent-alt">Button</BaseLink>
+    </div>
+    <div class="f-c ga-12">
+      <BaseTooltip class="b-4" color="success" side="top" />
+      <BaseTooltip class="b-4" color="warn" side="bottom" />
+      <BaseTooltip class="b-4" color="error" side="left" />
+      <BaseTooltip class="b-4" color="info" side="right" />
     </div>
   </div>
 </template>

@@ -31,7 +31,19 @@
     margin-#{$side}: $value*$n;
   }
 }
-
+@mixin marginP($side, $value) {
+  @if $side == all {
+    margin: #{$value}+"%";
+  } @else if $side == x {
+    margin-left: #{$value}+"%";
+    margin-right: #{$value}+"%";
+  } @else if $side == y {
+    margin-top: #{$value}+"%";
+    margin-bottom: #{$value}+"%";
+  } @else {
+    margin-#{$side}: #{$value}+"%";
+  }
+}
 
 // Gap
 @mixin gap($side, $value) {
@@ -47,6 +59,9 @@
 // Absolute position
 @mixin absolute($side, $value) {
   #{$side}: $value*$n;
+}
+@mixin absoluteP($side, $value) {
+  #{$side}: #{$value}+"%";
 }
 
 // Border radius
@@ -90,11 +105,19 @@ $sides-radius: (
     .m-#{$side}-#{$i} {
       @include margin($side, $i);
     }
+    .m-#{$side}-#{$i}m {
+      @include margin($side, calc($i * -1));
+    }
     .r-#{$side}-#{$i} {
       @include radius($side, $i);
     }
     .a-#{$side}-#{$i} {
       @include absolute($side, $i);
+      position: absolute;
+    }
+    .a-#{$side}-#{$i}p {
+      @include absoluteP($side, $i);
+      position: absolute;
     }
   }
 
@@ -198,6 +221,18 @@ $colors: (
   }
   .border-#{$name} {
     border-color: $color;
+  }
+  .border-#{$name}t {
+    border-color: $color transparent transparent transparent;
+  }
+  .border-#{$name}b {
+    border-color: transparent transparent $color transparent;
+  }
+  .border-#{$name}l {
+    border-color: transparent transparent transparent $color;
+  }
+  .border-#{$name}r {
+    border-color: transparent $color transparent transparent;
   }
   .outline-#{$name} {
     outline-color: $color;
