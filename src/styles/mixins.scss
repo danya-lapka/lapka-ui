@@ -1,0 +1,282 @@
+@use 'sass:list';
+@use './variables.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+// Padding
+@mixin padding($side, $value) {
+  @if $side == all {
+    padding: $value*$n;
+  } @else if $side == x {
+    padding-left: $value*$n;
+    padding-right: $value*$n;
+  } @else if $side == y {
+    padding-top: $value*$n;
+    padding-bottom: $value*$n;
+  } @else {
+    padding-#{$side}: $value*$n;
+  }
+}
+
+// Margin
+@mixin margin($side, $value) {
+  @if $side == all {
+    margin: $value*$n;
+  } @else if $side == x {
+    margin-left: $value*$n;
+    margin-right: $value*$n;
+  } @else if $side == y {
+    margin-top: $value*$n;
+    margin-bottom: $value*$n;
+  } @else {
+    margin-#{$side}: $value*$n;
+  }
+}
+
+
+// Gap
+@mixin gap($side, $value) {
+  @if $side == all {
+    gap: $value*$n;
+  } @else if $side == x {
+    row-gap: $value*$n;
+  } @else if $side == y {
+    column-gap: $value*$n;
+  }
+}
+
+// Absolute position
+@mixin absolute($side, $value) {
+  #{$side}: $value*$n;
+}
+
+// Border radius
+@mixin radius($side, $value) {
+  @if $side == all {
+    border-radius: $value*$n;
+  } @else if $side == left {
+    border-bottom-left-radius: $value*$n;
+    border-top-left-radius: $value*$n;
+  } @else if $side == right {
+    border-bottom-right-radius: $value*$n;
+    border-top-right-radius: $value*$n;
+  } @else if $side == top {
+    border-top-left-radius: $value*$n;
+    border-top-right-radius: $value*$n;
+  } @else if $side == bottom {
+    border-bottom-left-radius: $value*$n;
+    border-bottom-right-radius: $value*$n;
+  } @else {
+    margin-#{$side}: $value*$n;
+  }
+}
+
+
+$sides: (
+ top, bottom, left, right
+);
+$sides-other: (
+  x, y
+);
+$sides-radius: (
+  top-left, top-right, bottom-left, bottom-right
+);
+
+@for $i from 0 to 257 {
+
+  @each $side in $sides {
+    .p-#{$side}-#{$i} {
+      @include padding($side, $i);
+    }
+    .m-#{$side}-#{$i} {
+      @include margin($side, $i);
+    }
+    .r-#{$side}-#{$i} {
+      @include radius($side, $i);
+    }
+    .a-#{$side}-#{$i} {
+      @include absolute($side, $i);
+    }
+  }
+
+  @each $side in $sides-other {
+    .g-#{$side}-#{$i} {
+      @include gap($side, $i);
+    }
+    .p-#{$side}-#{$i} {
+      @include padding($side, $i);
+    }
+    .m-#{$side}-#{$i} {
+      @include margin($side, $i);
+    }
+  }
+
+  .ga-#{$i} {
+    @include gap("all", $i);
+  }
+  .pa-#{$i} {
+    @include padding("all", $i);
+  }
+  .ma-#{$i} {
+    @include margin("all", $i);
+  }
+  .ra-#{$i} {
+    @include radius("all", $i);
+  }
+}
+
+// Typography
+@mixin font-face($path, $weight, $style: normal) {
+  @font-face {
+    font-family: 'Monocraft';
+    src: url('#{$path}') format('opentype');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@include font-face('../fonts/monocraft/Monocraft-SemiBold.otf', 500);
+@include font-face('../fonts/monocraft/Monocraft-Bold.otf', 600);
+@include font-face('../fonts/monocraft/Monocraft-Black.otf', 700);
+
+@mixin typography($family, $size, $weight, $gap) {
+  font: {
+    family: #{$family};
+    size: $size*$n;
+    weight: $weight;
+    style: normal;
+  }
+  p {
+    margin-top: $gap*$n;
+  }
+}
+
+$typography: (
+  "h-1": ($font-heading, 64, 800, 8),
+  "h-2": ($font-heading, 48, 700, 8),
+  "h-3": ($font-heading, 40, 700, 8),
+  "h-4": ($font-heading, 36, 600, 8),
+  "b-1": ($font-body, 36, 700, 8),
+  "b-2": ($font-body, 32, 600, 8),
+  "b-3": ($font-body, 24, 600, 8),
+  "b-4": ($font-body, 20, 500, 8),
+  "b-5": ($font-body, 16, 500, 8),
+  "b-6": ($font-body, 12, 500, 8)
+);
+@each $name, $value in $typography {
+  .#{$name} {
+    @include typography(list.nth($value, 1), list.nth($value, 2), list.nth($value, 3), list.nth($value, 4))
+  }
+}
+
+// Colors
+$colors: (
+  "white": $white,
+  "gray-1": $gray-1,
+  "gray-2": $gray-2,
+  "gray-3": $gray-3,
+  "black": $black,
+  "accent": $accent,
+  "accent-1": $accent-1,
+  "accent-2": $accent-2,
+  "accent-3": $accent-3,
+  "success": $success,
+  "success-alt": $success-alt,
+  "warn": $warn,
+  "warn-alt": $warn-alt,
+  "error": $error,
+  "error-alt": $error-alt,
+  "info": $info,
+  "info-alt": $info-alt
+);
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  .color-#{$name} {
+    color: $color;
+  }
+  .border-#{$name} {
+    border-color: $color;
+  }
+  .outline-#{$name} {
+    outline-color: $color;
+  }
+}
+.transparent {
+  background-color: transparent;
+}
+
+// Flexes
+@mixin flex($direction, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+$flexes: (
+  "r": (row, nowrap),
+  "rw": (row, wrap),
+  "rr": (row-reverse, nowrap),
+  "rrw": (row-reverse, wrap),
+  "c": (column, nowrap),
+  "cw": (column, wrap),
+  "cr": (column-reverse, nowrap),
+  "crw": (column-reverse, wrap)
+);
+@each $flex, $flow in $flexes {
+  .f-#{$flex} {
+    @include flex(list.nth($flow, 1), list.nth($flow, 2));
+  }
+}
+
+// Align and Justifies
+$aandj: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center
+);
+$aligns: (
+  normal, stretch, baseline
+);
+$justifies: (
+  between, around, evenly
+);
+
+@each $name, $value in $aandj {
+  .a-#{$name} {
+    align-items: $value;
+  }
+  .j-#{$name} {
+    justify-content: $value;
+  }
+}
+@each $align in $aligns {
+  .a-#{$align} {
+    align-items: $align;
+  }
+}
+@each $justify in $justifies {
+  .j-#{$justify} {
+    justify-content: $justify;
+  }
+}
+
+$cursors: (
+  pointer, help, text, crosshair, default, auto, none, context-menu, progress, wait, cell, crosshair, vertical-text, alias, copy, move, no-drop, not-allowed, all-scroll, col-resize, row-resize, n-resize, e-resize, s-resize, w-resize, ns-resize, ew-resize, ne-resize, nw-resize, se-resize, sw-resize, nesw-resize, nwse-resize
+);
+@each $name in $cursors {
+  .c-#{$name} {
+    cursor: $name;
+  }
+}
+
+// Other
+.outline-base {
+  outline-offset: -2*$n;
+  outline-width: 2*$n;
+  outline-style: solid;
+}
+
+body {
+  @extend .bg-black, .color-white;
+}

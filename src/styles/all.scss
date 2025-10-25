@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  transition: all .333s cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+}
