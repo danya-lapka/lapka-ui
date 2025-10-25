@@ -2,7 +2,7 @@
 
 import '@/styles/all.scss';
 import '@/styles/mixins.scss';
-import { BaseButton } from './components';
+import { BaseButton, BaseLink } from './components';
 
 </script>
 
@@ -24,21 +24,31 @@ import { BaseButton } from './components';
         <p class="b-6">Body 6</p>
       </div>
     </div>
-    <div class="f-c ga-12">
-      <BaseButton color="white">Button</BaseButton>
-      <BaseButton color="white-accent">Button</BaseButton>
-      <BaseButton color="black">Button</BaseButton>
-      <BaseButton color="black-accent">Button</BaseButton>
-      <BaseButton color="accent">Button</BaseButton>
-      <BaseButton color="accent-alt">Button</BaseButton>
+    <div class="f-r ga-16">
+      <div class="f-c ga-12">
+        <BaseButton color="white">Button</BaseButton>
+        <BaseButton color="white-accent">Button</BaseButton>
+        <BaseButton color="black">Button</BaseButton>
+        <BaseButton color="black-accent">Button</BaseButton>
+        <BaseButton color="accent">Button</BaseButton>
+        <BaseButton color="accent-alt">Button</BaseButton>
+      </div>
+      <div class="f-c ga-12">
+        <BaseButton outline color="white">Button</BaseButton>
+        <BaseButton outline color="white-accent">Button</BaseButton>
+        <BaseButton outline color="black">Button</BaseButton>
+        <BaseButton outline color="black-accent">Button</BaseButton>
+        <BaseButton outline color="accent">Button</BaseButton>
+        <BaseButton outline color="accent-alt">Button</BaseButton>
+      </div>
     </div>
     <div class="f-c ga-12">
-      <BaseButton outline color="white">Button</BaseButton>
-      <BaseButton outline color="white-accent">Button</BaseButton>
-      <BaseButton outline color="black">Button</BaseButton>
-      <BaseButton outline color="black-accent">Button</BaseButton>
-      <BaseButton outline color="accent">Button</BaseButton>
-      <BaseButton outline color="accent-alt">Button</BaseButton>
+      <BaseLink href="#" color="white">Button</BaseLink>
+      <BaseLink href="#" color="white-accent">Button</BaseLink>
+      <BaseLink href="#" color="black">Button</BaseLink>
+      <BaseLink href="#" color="black-accent">Button</BaseLink>
+      <BaseLink href="#" color="accent">Button</BaseLink>
+      <BaseLink href="#" color="accent-alt">Button</BaseLink>
     </div>
   </div>
 </template>

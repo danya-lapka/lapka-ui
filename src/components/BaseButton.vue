@@ -1,8 +1,8 @@
 <template>
 
 <button
-  class="p-x-8 p-y-4 ga-8 ra-8"
-  :class="`button-${color}${outline? '-outline':''} ${text}`"
+  class="f-r p-x-8 p-y-4 ga-8 ra-8"
+  :class="`${color}${outline? '-outline':''} ${text}`"
   :type="type"
   @click="handleClick"
 >
@@ -30,7 +30,6 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   click: [void]
 }>();
-
 function handleClick() {
   emit('click');
 }
@@ -40,7 +39,7 @@ function handleClick() {
 @use 'sass:list';
 @use '../styles/mixins.scss' as *;
 
-$buttons: (
+$component: (
   "white": ("white", "gray-1", "black", "gray-3"),
   "white-accent": ("white", "accent", "black", "black"),
   "black": ("black", "gray-3", "white", "gray-1"),
@@ -48,9 +47,14 @@ $buttons: (
   "accent": ("accent", "accent-1", "black", "gray-3"),
   "accent-alt": ("accent", "accent-3", "white", "gray-1")
 );
-@each $name, $colors in $buttons {
-  .button-#{$name} {
-    @extend
+.component {
+  &:active {
+    transform: scale(0.95);
+  }
+}
+@each $name, $colors in $component {
+  .#{$name} {
+    @extend .component,
       .bg-#{list.nth($colors, 1)},
       .color-#{list.nth($colors, 3)},
       .c-pointer;
@@ -61,8 +65,8 @@ $buttons: (
         .color-#{list.nth($colors, 4)};
     }
   }
-  .button-#{$name}-outline {
-    @extend
+  .#{$name}-outline {
+    @extend .component,
       .transparent,
       .outline-base,
       .outline-#{list.nth($colors, 1)},
