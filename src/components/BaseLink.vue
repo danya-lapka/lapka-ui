@@ -6,7 +6,7 @@
   :href="href"
   :target="target"
 >
-  <slot></slot>
+  <slot>Link</slot>
 </a>
 
 </template>

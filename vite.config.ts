@@ -17,5 +17,6 @@ export default defineConfig({
   },
   build: {
     minify: true
-  }
+  },
+   base: process.env.NODE_ENV === 'production'? '/lapka-ui/':'/',
 })

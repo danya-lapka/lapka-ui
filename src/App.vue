@@ -26,29 +26,29 @@ import { BaseButton, BaseLink, BaseTooltip } from './components';
     </div>
     <div class="f-r ga-16">
       <div class="f-c ga-12">
-        <BaseButton color="white">Button</BaseButton>
-        <BaseButton color="white-accent">Button</BaseButton>
-        <BaseButton color="black">Button</BaseButton>
-        <BaseButton color="black-accent">Button</BaseButton>
-        <BaseButton color="accent">Button</BaseButton>
-        <BaseButton color="accent-alt">Button</BaseButton>
+        <BaseButton color="white" />
+        <BaseButton color="white-accent" />
+        <BaseButton color="black" />
+        <BaseButton color="black-accent" />
+        <BaseButton color="accent" />
+        <BaseButton color="accent-alt" />
       </div>
       <div class="f-c ga-12">
-        <BaseButton outline color="white">Button</BaseButton>
-        <BaseButton outline color="white-accent">Button</BaseButton>
-        <BaseButton outline color="black">Button</BaseButton>
-        <BaseButton outline color="black-accent">Button</BaseButton>
-        <BaseButton outline color="accent">Button</BaseButton>
-        <BaseButton outline color="accent-alt">Button</BaseButton>
+        <BaseButton outline color="white" />
+        <BaseButton outline color="white-accent" />
+        <BaseButton outline color="black" />
+        <BaseButton outline color="black-accent" />
+        <BaseButton outline color="accent" />
+        <BaseButton outline color="accent-alt" />
       </div>
     </div>
     <div class="f-c ga-12">
-      <BaseLink href="#" color="white">Button</BaseLink>
-      <BaseLink href="#" color="white-accent">Button</BaseLink>
-      <BaseLink href="#" color="black">Button</BaseLink>
-      <BaseLink href="#" color="black-accent">Button</BaseLink>
-      <BaseLink href="#" color="accent">Button</BaseLink>
-      <BaseLink href="#" color="accent-alt">Button</BaseLink>
+      <BaseLink href="#" color="white" />
+      <BaseLink href="#" color="white-accent" />
+      <BaseLink href="#" color="black" />
+      <BaseLink href="#" color="black-accent" />
+      <BaseLink href="#" color="accent" />
+      <BaseLink href="#" color="accent-alt" />
     </div>
     <div class="f-c ga-12">
       <BaseTooltip class="b-4" color="success" side="top" />

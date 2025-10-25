@@ -6,7 +6,7 @@
   :type="type"
   @click="handleClick"
 >
-  <slot></slot>
+  <slot>Button</slot>
 </button>
 
 </template>
