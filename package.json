@@ -38,7 +38,6 @@
     "sass-embedded": "^1.93.2",
     "typescript": "~5.9.0",
     "vite": "npm:rolldown-vite@latest",
-    "vite-plugin-lightningcss": "^0.0.5",
     "vite-plugin-vue-devtools": "^8.0.3",
     "vitest": "^3.2.4",
     "vue-tsc": "^3.1.1"
