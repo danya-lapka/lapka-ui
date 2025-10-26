@@ -144,6 +144,10 @@ $sides-radius: (
   .ra-#{$i} {
     @include radius("all", $i);
   }
+
+  .w-#{$i} {
+    width: $i*$n;
+  }
 }
 
 // Typography
@@ -301,6 +305,15 @@ $cursors: (
 @each $name in $cursors {
   .c-#{$name} {
     cursor: $name;
+  }
+}
+
+$positions: (
+  absolute, relative, fixed
+);
+@each $name in $positions {
+  .pos-#{$name} {
+    position: $name;
   }
 }
 

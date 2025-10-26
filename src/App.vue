@@ -2,7 +2,7 @@
 
 import '@/styles/all.scss';
 import '@/styles/mixins.scss';
-import { BaseButton, BaseLink, BaseTooltip } from './components';
+import { BaseButton, BaseLink, BaseTooltip, InputText } from '@/components';
 
 </script>
 
@@ -55,6 +55,12 @@ import { BaseButton, BaseLink, BaseTooltip } from './components';
       <BaseTooltip class="b-4" color="warn" side="bottom" />
       <BaseTooltip class="b-4" color="error" side="left" />
       <BaseTooltip class="b-4" color="info" side="right" />
+    </div>
+    <div class="f-c ga-20">
+      <InputText class="w-200" color="white" />
+      <InputText class="w-200" color="black" />
+      <InputText outline class="w-200" color="white" />
+      <InputText outline class="w-200" color="black" />
     </div>
   </div>
 </template>

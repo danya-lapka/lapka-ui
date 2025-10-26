@@ -15,11 +15,14 @@
 </template>
 <script setup lang="ts">
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<{
+interface Props {
   color?: "white"|"black"|"accent"|"accent-alt"|"success"|"warn"|"error"|"info";
   side?: "top"|"bottom"|"left"|"right"
-}>(),
+}
+
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = withDefaults(defineProps<Props>(),
 {
   color: "white",
   side: "top"

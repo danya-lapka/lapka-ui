@@ -13,13 +13,15 @@
 <script setup lang="ts">
 import type { Typography } from './props';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<{
+interface Props {
   color?: "white"|"white-accent"|"black"|"black-accent"|"accent"|"accent-alt";
   text?: Typography,
   href: string,
   target?: string
-}>(),
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = withDefaults(defineProps<Props>(),
 {
   color: "white",
   text: "b-4",

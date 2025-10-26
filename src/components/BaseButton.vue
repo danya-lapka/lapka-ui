@@ -13,13 +13,18 @@
 <script setup lang="ts">
 import type { Typography } from './props';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<{
+interface Props {
   color?: "white"|"white-accent"|"black"|"black-accent"|"accent"|"accent-alt";
   text?: Typography,
   type?: "button"|"reset"|"submit",
   outline?: boolean
-}>(),
+}
+interface Emits {
+  (e: 'click', event: MouseEvent): [void]
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = withDefaults(defineProps<Props>(),
 {
   color: "white",
   text: "b-4",
@@ -27,11 +32,10 @@ const props = withDefaults(defineProps<{
   outline: false
 });
 
-const emit = defineEmits<{
-  click: [void]
-}>();
-function handleClick() {
-  emit('click');
+const emit = defineEmits<Emits>();
+
+const handleClick = (event: MouseEvent): void => {
+  emit('click', event)
 }
 
 </script>
