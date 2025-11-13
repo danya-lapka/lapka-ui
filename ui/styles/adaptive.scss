@@ -1,0 +1,33 @@
+@use './variables.scss' as *;
+body {
+  container: body / inline-size;
+}
+
+#app {
+  @container body (min-width: 576px) {
+    --padding: 32px;
+  }
+  @container body (min-width: 768px) {
+    --padding: 96px;
+  }
+  @container body (min-width: 1024px) {
+    --padding: 128px;
+  }
+  @container body (min-width: 1440px) {
+    --padding: 208px;
+  }
+  @container body (min-width: 1920px) {
+    --padding: 240px;
+  }
+}
+
+main {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+
+header, footer {
+  width: 100%;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}

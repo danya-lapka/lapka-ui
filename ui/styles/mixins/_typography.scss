@@ -1,0 +1,47 @@
+@use 'sass:list';
+@use '../variables.scss' as *;
+
+@mixin font-face($path, $weight, $style: normal) {
+  @font-face {
+    font-family: 'Monocraft';
+    src: url('#{$path}') format('opentype');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@include font-face('../fonts/monocraft/Monocraft-SemiBold.otf', 500);
+@include font-face('../fonts/monocraft/Monocraft-Bold.otf', 600);
+@include font-face('../fonts/monocraft/Monocraft-Black.otf', 700);
+
+@mixin typography($family, $size, $weight, $gap) {
+  font: {
+    family: #{$family};
+    size: $size * $n;
+    weight: $weight;
+    style: normal;
+  }
+  p {
+    margin-top: $gap * $n;
+  }
+}
+
+$typography: (
+  "h-1": ($font-heading, 64, 800, 8),
+  "h-2": ($font-heading, 48, 700, 8),
+  "h-3": ($font-heading, 40, 700, 8),
+  "h-4": ($font-heading, 36, 600, 8),
+  "b-1": ($font-body, 36, 700, 8),
+  "b-2": ($font-body, 32, 600, 8),
+  "b-3": ($font-body, 24, 600, 8),
+  "b-4": ($font-body, 20, 500, 8),
+  "b-5": ($font-body, 16, 500, 8),
+  "b-6": ($font-body, 12, 500, 8)
+);
+
+@each $name, $value in $typography {
+  .#{$name} {
+    @include typography(list.nth($value, 1), list.nth($value, 2), list.nth($value, 3), list.nth($value, 4));
+  }
+}
