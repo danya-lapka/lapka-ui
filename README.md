@@ -17,7 +17,6 @@ Lapka UI is a lightweight and customizable component library for Vue.js, built w
   - [SCSS Variables](#scss-variables)
   - [Mixins](#mixins)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Usage
 
@@ -165,7 +164,3 @@ A collection of useful SCSS mixins is available in the `ui/styles/mixins/` direc
 ## Contributing
 
 Contributions are welcome! If you have a feature request or a bug to report, please open an issue. If you would like to contribute code, please fork the repository and create a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
