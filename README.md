@@ -70,7 +70,6 @@ A flexible button component.
 | Prop      | Type                                                              | Default       | Description                               |
 | --------- | ----------------------------------------------------------------- | ------------- | ----------------------------------------- |
 | `color`   | `"white"`, `"white-accent"`, `"black"`, `"black-accent"`, `"accent"`, `"accent-alt"` | `"white"`     | The color theme of the button.            |
-| `text`    | `Typography`                                                      | `"b-4"`       | The typography style of the button text.  |
 | `type`    | `"button"`, `"reset"`, `"submit"`                                 | `"button"`    | The native `type` attribute of the button. |
 | `outline` | `boolean`                                                         | `false`       | Whether to display the button as an outline. |
 
@@ -89,7 +88,6 @@ A styled text input component.
 | Prop         | Type                                                                 | Default  | Description                                  |
 | ------------ | -------------------------------------------------------------------- | -------- | -------------------------------------------- |
 | `color`      | `"white"`, `"black"`                                                 | `"white"`| The color theme of the input.                |
-| `text`       | `Typography`                                                         | `"b-4"`  | The typography style of the input text.      |
 | `type`       | `"text"`, `"password"`, `"email"`, `"tel"`, `"number"`, `"url"`, `"search"` | `"text"` | The native `type` attribute of the input.    |
 | `outline`    | `boolean`                                                            | `false`  | Whether to display the input as an outline.  |
 | `id`         | `string`                                                             | `''`     | The `id` of the input.                       |
@@ -116,7 +114,6 @@ A standard `<a>` tag with styling.
 | Prop     | Type                                                              | Default   | Description                               |
 | -------- | ----------------------------------------------------------------- | --------- | ----------------------------------------- |
 | `color`  | `"white"`, `"white-accent"`, `"black"`, `"black-accent"`, `"accent"`, `"accent-alt"` | `"white"` | The color theme of the link.              |
-| `text`   | `Typography`                                                      | `"b-4"`   | The typography style of the link text.    |
 | `href`   | `string`                                                          |           | The URL the link points to.               |
 | `target` | `'_self'`, `'_blank'`, `'_parent'`, `'_top'`                       | `'_self'` | The `target` attribute of the link.       |
 
@@ -129,7 +126,6 @@ A `router-link` component for use with Vue Router.
 | Prop     | Type                                                              | Default   | Description                               |
 | -------- | ----------------------------------------------------------------- | --------- | ----------------------------------------- |
 | `color`  | `"white"`, `"white-accent"`, `"black"`, `"black-accent"`, `"accent"`, `"accent-alt"` | `"white"` | The color theme of the link.              |
-| `text`   | `Typography`                                                      | `"b-4"`   | The typography style of the link text.    |
 | `href`   | `string`                                                          |           | The path for the router link.             |
 | `target` | `'_self'`, `'_blank'`, `'_parent'`, `'_top'`                       | `'_self'` | The `target` attribute of the link.       |
 

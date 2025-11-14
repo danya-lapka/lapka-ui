@@ -2,7 +2,7 @@
 
 <a
   class="f-r fi c-pointer"
-  :class="[color, text]"
+  :class="color"
   :href="href"
   :target="target"
 >
@@ -11,11 +11,9 @@
 
 </template>
 <script setup lang="ts">
-import type { Typography } from '../types/props';
 
 interface Props {
   color?: "white"|"white-accent"|"black"|"black-accent"|"accent"|"accent-alt";
-  text?: Typography,
   href: string,
   target?: '_self' | '_blank' | '_parent' | '_top'
 }
@@ -24,7 +22,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(),
 {
   color: "white",
-  text: "b-4",
   target: "_self"
 });
 

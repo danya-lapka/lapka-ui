@@ -12,11 +12,9 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { Typography } from '../types/props';
 
 interface Props {
-  color?: "white"|"white-accent"|"black"|"black-accent"|"accent"|"accent-alt";
-  text?: Typography,
+  color?: "white"|"white-accent"|"black"|"black-accent"|"accent"|"accent-alt",
   type?: "button"|"reset"|"submit",
   outline?: boolean
 }
@@ -27,12 +25,10 @@ interface Emits {
 const props = withDefaults(defineProps<Props>(),
 {
   color: "white",
-  text: "b-4",
   type: "button",
   outline: false
 });
 const computedClasses = computed(() => [
-  props.text,
   props.outline ? `${props.color}-outline` : props.color
 ])
 

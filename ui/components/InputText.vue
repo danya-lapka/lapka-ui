@@ -23,11 +23,9 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { Typography } from '../types/props';
 
 interface Props {
   color?: "white"|"black";
-  text?: Typography,
   type?: "text"|"password"|"email"|"tel"|"number"|"url"|"search",
   outline?: boolean,
   id?: string,
@@ -47,14 +45,12 @@ interface Emits {
 const props = withDefaults(defineProps<Props>(),
 {
   color: "white",
-  text: "b-4",
   type: "text",
   outline: false,
   required: false,
   modelValue: ''
 });
 const computedClasses = computed(() => [
-  props.text,
   props.outline ? `${props.color}-outline` : props.color
 ])
 

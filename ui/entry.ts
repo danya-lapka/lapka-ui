@@ -8,8 +8,10 @@ import TooltipBase from './components/TooltipBase.vue'
 import InputText from './components/InputText.vue'
 import LinkRouter from './components/LinkRouter.vue'
 import SvgIcon from './components/SvgIcon.vue'
+import { WindowSize } from './adaptive'
 
-export { ButtonBase, LinkBase, LinkRouter, TooltipBase, InputText, SvgIcon }
+
+export { ButtonBase, LinkBase, LinkRouter, TooltipBase, InputText, SvgIcon, WindowSize }
 
 const components = {
   ButtonBase,
